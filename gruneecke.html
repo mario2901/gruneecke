@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Gartenpflege Grüne Ecke - Professionelle Gartenservices in Laupheim
+    </title>
+
+    <style>
+      /* ========== CSS Reset und Basis-Styling ========== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        /* Grüne Farbpalette */
+        --primary-green: #2d6a3e;
+        --secondary-green: #4a9d6f;
+        --light-green: #a8d5ba;
+        --pale-green: #e8f4f1;
+        --accent-green: #1e4620;
+
+        /* Zusätzliche Farben */
+        --white: #ffffff;
+        --dark-gray: #333333;
+        --light-gray: #f5f5f5;
+        --border-gray: #e0e0e0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--dark-gray);
+        background-color: var(--white);
+      }
+
+      /* ========== Header und Navigation ========== */
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-green) 0%,
+          var(--secondary-green) 100%
+        );
+        color: var(--white);
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .logo::before {
+        content: "🌿";
+        font-size: 2rem;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+      }
+
+      nav a {
+        color: var(--white);
+        text-decoration: none;
+        transition:
+          color 0.3s ease,
+          opacity 0.3s ease;
+        font-weight: 500;
+      }
+
+      nav a:hover {
+        color: var(--light-green);
+        opacity: 0.9;
+      }
+
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--white);
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* ========== Hero Section ========== */
+      .hero {
+        background: linear-gradient(
+          135deg,
+          var(--primary-green) 0%,
+          var(--secondary-green) 100%
+        );
+        color: var(--white);
+        padding: 8rem 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="30" fill="rgba(255,255,255,0.05)"/><circle cx="80" cy="80" r="40" fill="rgba(255,255,255,0.03)"/></svg>');
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        margin: 0 auto;
+        animation: fadeInDown 0.8s ease-out;
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        opacity: 0.95;
+      }
+
+      .cta-button {
+        background-color: var(--light-green);
+        color: var(--primary-green);
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        display: inline-block;
+        text-decoration: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .cta-button:hover {
+        background-color: var(--white);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .cta-button:active {
+        transform: translateY(0);
+      }
+
+      /* ========== Allgemeiner Container ========== */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .section {
+        padding: 5rem 2rem;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--primary-green);
+        position: relative;
+        padding-bottom: 1rem;
+      }
+
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 4px;
+        background-color: var(--secondary-green);
+        margin: 1rem auto 0;
+        border-radius: 2px;
+      }
+
+      /* ========== Services Section ========== */
+      .services {
+        background-color: var(--light-gray);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .service-card {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border-left: 5px solid var(--secondary-green);
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        border-left-color: var(--light-green);
+      }
+
+      .service-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .service-card h3 {
+        color: var(--primary-green);
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+
+      .service-card p {
+        color: #666;
+        line-height: 1.8;
+      }
+
+      /* ========== About Section ========== */
+      .about {
+        background-color: var(--pale-green);
+      }
+
+      .about-content {
+        max-width: 800px;
+        margin: 0 auto;
+        background: var(--white);
+        padding: 3rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      .about-content p {
+        font-size: 1.1rem;
+        line-height: 1.9;
+        color: #555;
+        margin-bottom: 1.5rem;
+      }
+
+      .about-content strong {
+        color: var(--primary-green);
+      }
+
+      /* ========== Contact Section ========== */
+      .contact {
+        background-color: var(--white);
+      }
+
+      .contact-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        margin-top: 3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .contact-info {
+        background-color: var(--light-gray);
+        padding: 2rem;
+        border-radius: 10px;
+      }
+
+      .contact-item {
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .contact-icon {
+        font-size: 1.5rem;
+        color: var(--secondary-green);
+        margin-top: 0.3rem;
+      }
+
+      .contact-text h4 {
+        color: var(--primary-green);
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-text p {
+        color: #666;
+      }
+
+      .phone-link {
+        color: var(--secondary-green);
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      .phone-link:hover {
+        color: var(--primary-green);
+      }
+
+      /* ========== Phone Highlight ========== */
+      .phone-highlight {
+        background: linear-gradient(
+          135deg,
+          var(--secondary-green) 0%,
+          var(--primary-green) 100%
+        );
+        color: var(--white);
+        padding: 2rem 1.5rem;
+        border-radius: 10px;
+        text-align: center;
+        margin: 1.5rem 0;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .phone-highlight h3 {
+        font-size: 0.95rem;
+        opacity: 0.95;
+        margin-bottom: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .phone-highlight a {
+        display: inline-block;
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: var(--white);
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        border: 2px solid var(--white);
+      }
+
+      .phone-highlight a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: scale(1.05);
+      }
+
+      /* ========== Footer ========== */
+      footer {
+        background: linear-gradient(
+          135deg,
+          var(--primary-green) 0%,
+          var(--accent-green) 100%
+        );
+        color: var(--white);
+        text-align: center;
+        padding: 2rem;
+        margin-top: 3rem;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-contact {
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+      }
+
+      .footer-contact p {
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-copyright {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding-top: 1.5rem;
+        opacity: 0.8;
+        font-size: 0.9rem;
+      }
+
+      /* ========== Responsive Design ========== */
+      @media (max-width: 768px) {
+        .phone-highlight a {
+          font-size: 1.5rem;
+        }
+
+        nav ul {
+          display: none;
+          flex-direction: column;
+          gap: 1rem;
+          background: var(--accent-green);
+          padding: 1rem;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          right: 0;
+        }
+
+        nav ul.active {
+          display: flex;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .hero {
+          padding: 4rem 2rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section {
+          padding: 3rem 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header-container {
+          padding: 0 1rem;
+        }
+
+        .logo {
+          font-size: 1.3rem;
+        }
+
+        .hero h1 {
+          font-size: 1.5rem;
+        }
+
+        .hero {
+          padding: 3rem 1rem;
+        }
+
+        .section {
+          padding: 2rem 1rem;
+        }
+
+        .about-content {
+          padding: 1.5rem;
+        }
+
+        .cta-button {
+          padding: 0.8rem 1.5rem;
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ========== Header mit Navigation ========== -->
+    <header>
+      <div class="header-container">
+        <div class="logo">Grüne Ecke</div>
+        <nav>
+          <button class="menu-toggle" id="menuToggle">☰</button>
+          <ul id="navMenu">
+            <li><a href="#startseite">Startseite</a></li>
+            <li><a href="#leistungen">Leistungen</a></li>
+            <li><a href="#uber-uns">Über uns</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ========== Hero Section ========== -->
+    <section class="hero" id="startseite">
+      <div class="hero-content">
+        <h1>Professionelle Gartenpflege in Laupheim und Umgebung</h1>
+        <p>
+          Ihre Grüne Oase verdient die beste Pflege. Mit jahrelanger Erfahrung
+          und höchsten Qualitätsstandards gestalten wir Ihren Traum-Garten.
+        </p>
+        <a href="tel:+491766474852" class="cta-button">Jetzt anrufen</a>
+      </div>
+    </section>
+
+    <!-- ========== Services / Leistungen ========== -->
+    <section class="services" id="leistungen">
+      <div class="container">
+        <h2 class="section-title">Unsere Leistungen</h2>
+        <div class="services-grid">
+          <!-- Service 1: Rasenpflege -->
+          <div class="service-card">
+            <div class="service-icon">🌱</div>
+            <h3>Rasenpflege</h3>
+            <p>
+              Professionelle Rasenbearbeitung, Düngung und Besprechung für einen
+              grünen, dichten Rasen das ganze Jahr über.
+            </p>
+          </div>
+
+          <!-- Service 2: Heckenschnitt -->
+          <div class="service-card">
+            <div class="service-icon">✂️</div>
+            <h3>Heckenschnitt</h3>
+            <p>
+              Präziser Heckenschnitt und Formgebung für einen gepflegten
+              Außenbereich. Wir sorgen für saubere Schnitte und optimale
+              Wuchsformen.
+            </p>
+          </div>
+
+          <!-- Service 3: Gartenreinigung -->
+          <div class="service-card">
+            <div class="service-icon">🧹</div>
+            <h3>Gartenreinigung</h3>
+            <p>
+              Gründliche Reinigung und Entrümpelung Ihres Gartens. Wir schaffen
+              saubere, gepflegte und nutzbaren Außenflächen.
+            </p>
+          </div>
+
+          <!-- Service 4: Landschaftsgestaltung -->
+          <div class="service-card">
+            <div class="service-icon">🏗️</div>
+            <h3>Landschaftsgestaltung</h3>
+            <p>
+              Kreative Gestaltung und Neugestaltung von Gärten nach Ihren
+              Wünschen. Von Planung bis Umsetzung begleiten wir Sie.
+            </p>
+          </div>
+
+          <!-- Service 5: Allgemeine Gartenpflege -->
+          <div class="service-card">
+            <div class="service-icon">🌻</div>
+            <h3>Allgemeine Gartenpflege</h3>
+            <p>
+              Umfassende Gartenbetreuung: Schnitt, Pflanzenpflege,
+              Unkrautbekämpfung und Instandhaltung für das ganze Jahr.
+            </p>
+          </div>
+
+          <!-- Zusätzlicher Service -->
+          <div class="service-card">
+            <div class="service-icon">🌳</div>
+            <h3>Baumschnitt</h3>
+            <p>
+              Fachgerechter Baumschnitt und Kronenpflege für Obstbäume,
+              Ziergehölze und große Bäume nach fachlichen Standards.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== About / Über uns ========== -->
+    <section class="about" id="uber-uns">
+      <div class="container">
+        <h2 class="section-title">Über uns</h2>
+        <div class="about-content">
+          <p>
+            <strong>Gartenpflege Grüne Ecke</strong> ist Ihr zuverlässiger
+            Partner für professionelle Gartenservices in Laupheim und der
+            umgebenden Region. Mit Jahren von Erfahrung und handwerklichem
+            Fachwissen haben wir uns als vertrauenswürdiger Anbieter etabliert.
+          </p>
+          <p>
+            Wir verstehen, dass jeder Garten einzigartig ist. Daher bieten wir
+            <strong>maßgeschneiderte Lösungen</strong>, die speziell auf Ihre
+            Bedürfnisse abgestimmt sind. Unser Team arbeitet mit modernen
+            Werkzeugen und bewährten Methoden, um Ihre grüne Oase zu einer
+            Quelle der Freude zu machen.
+          </p>
+          <p>
+            <strong>Zuverlässigkeit, Qualität und Kundenzufriedenheit</strong>
+            sind die Grundlagen unserer Arbeit. Mit einer Bewertung von
+            <strong>5 Sternen</strong> zeigen unsere zufriedenen Kunden, dass
+            wir diese Versprechen halten.
+          </p>
+          <p>
+            Kontaktieren Sie uns noch heute für ein unverbindliches
+            Beratungsgespräch!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Contact / Kontakt ========== -->
+    <section class="contact" id="kontakt">
+      <div class="container">
+        <h2 class="section-title">Kontaktieren Sie uns</h2>
+        <div class="contact-wrapper">
+          <!-- Kontaktinformationen -->
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div class="contact-text">
+                <h4>Adresse</h4>
+                <p>Rabenstraße 24<br />88471 Laupheim<br />Deutschland</p>
+              </div>
+            </div>
+
+            <div class="phone-highlight">
+              <h3>📞 Rufen Sie uns jetzt an</h3>
+              <a href="tel:+491766474852">+49 176 64748524</a>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">🕒</div>
+              <div class="contact-text">
+                <h4>Öffnungszeiten</h4>
+                <p>
+                  Montag–Freitag: 08:00–17:00 Uhr<br />Samstag: 09:00–13:00
+                  Uhr<br />Sonntag: Geschlossen
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">🌍</div>
+              <div class="contact-text">
+                <h4>Servicegebiet</h4>
+                <p>Laupheim und Umgebung<br />(ca. 15 km Radius)</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">⭐</div>
+              <div class="contact-text">
+                <h4>Google-Bewertung</h4>
+                <p>★★★★★ 5.0 Sterne</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Footer ========== -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-contact">
+          <p><strong>Gartenpflege Grüne Ecke</strong></p>
+          <p>Rabenstraße 24, 88471 Laupheim</p>
+          <p>
+            Telefon:
+            <a
+              href="tel:+491766474852"
+              class="phone-link"
+              style="color: var(--light-green)"
+              >+49 176 64748524</a
+            >
+          </p>
+        </div>
+        <div class="footer-copyright">
+          <p>&copy; 2024 Gartenpflege Grüne Ecke. Alle Rechte vorbehalten.</p>
+          <p>Professionelle Gartenpflege in Laupheim und Umgebung</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      /* ========== Mobile Menu Toggle ========== */
+      const menuToggle = document.getElementById("menuToggle");
+      const navMenu = document.getElementById("navMenu");
+
+      menuToggle.addEventListener("click", function () {
+        navMenu.classList.toggle("active");
+      });
+
+      // Menu ausblenden, wenn ein Link geklickt wird
+      const navLinks = navMenu.querySelectorAll("a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", function () {
+          navMenu.classList.remove("active");
+        });
+      });
+
+      /* ========== Smooth Scrolling für Navigationslinks ========== */
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      /* ========== CTA Button Functionality ========== */
+      document
+        .querySelector(".cta-button")
+        .addEventListener("click", function (e) {
+          // Link führt direkt zu Telefon, aber wir können auch Analytics hinzufügen
+          console.log("CTA Button clicked - Calling: +49 176 64748524");
+        });
+    </script>
+  </body>
+</html>
