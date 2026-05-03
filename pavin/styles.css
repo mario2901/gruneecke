@@ -148,6 +148,7 @@ nav a:hover {
   }
 }
 
+/* ========== Hero Content ========== */
 .hero h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
@@ -392,6 +393,42 @@ nav a:hover {
 .phone-highlight a:hover {
   background-color: rgba(255, 255, 255, 0.2);
   transform: scale(1.05);
+}
+
+/* ========== Email Highlight ========== */
+.email-highlight {
+  background: linear-gradient(135deg, #2d6a3e 0%, #4a9d6f 100%);
+  color: var(--white);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+  border-left: 4px solid var(--light-green);
+}
+
+.email-highlight h4 {
+  font-size: 0.85rem;
+  opacity: 0.95;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--light-green);
+}
+
+.email-highlight a {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.email-highlight a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  text-decoration: underline;
 }
 
 /* ========== Footer ========== */
