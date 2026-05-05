@@ -136,6 +136,15 @@ header {
 }
 
 /* Gumb popravak */
+.button-group {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .cta-button {
   position: relative;
   z-index: 2;
@@ -148,6 +157,32 @@ header {
   font-weight: 600;
   box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3);
   transition: 0.3s;
+}
+
+.cta-button:hover {
+  background: #16a34a;
+  box-shadow: 0 12px 24px rgba(34, 197, 94, 0.4);
+  transform: translateY(-2px);
+}
+
+.whatsapp-button {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  padding: 14px 32px;
+  background: #25d366;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+  transition: 0.3s;
+}
+
+.whatsapp-button:hover {
+  background: #20ba5a;
+  box-shadow: 0 12px 24px rgba(37, 211, 102, 0.4);
+  transform: translateY(-2px);
 }
 
 /* Hero Content - Poboljšana vidljivost teksta */
