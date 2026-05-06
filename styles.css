@@ -1,0 +1,578 @@
+/* ========== CSS Reset und Basis-Styling ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Grüne Farbpalette */
+  --primary-green: #2d6a3e;
+  --secondary-green: #4a9d6f;
+  --light-green: #a8d5ba;
+  --pale-green: #e8f4f1;
+  --accent-green: #1e4620;
+
+  /* Zusätzliche Farben */
+  --white: #ffffff;
+  --dark-gray: #333333;
+  --light-gray: #f5f5f5;
+  --border-gray: #e0e0e0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--dark-gray);
+  background-color: var(--white);
+}
+/* --- Hero Sekcija --- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+
+  background: url("photos/pozadina.png") no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 80px;
+}
+
+/* Overlay koji daje dubinu i čini tekst čitljivim */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.7));
+  z-index: 1;
+}
+
+/* --- Navigacija popravak --- */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Razmak između slike logotipa i teksta */
+}
+
+.logo img {
+  height: 50px;
+  border-radius: 50%; /* Da logo ne izgleda oštro ako ima bijelu pozadinu */
+}
+
+.logo h6 {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+#navMenu {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+}
+
+#navMenu li a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9); /* Skoro bijela za bolji kontrast */
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+#navMenu li a:hover {
+  color: #4ade80; /* Svijetlo zelena na prijelaz */
+}
+
+/* Menu Toggle Button - Mobilni meni gumb */
+.menu-toggle {
+  background: transparent;
+
+  color: #ffffff;
+  font-size: 1.8rem;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 700;
+  display: none;
+}
+
+.menu-toggle:hover {
+  background: rgba(34, 197, 94, 1);
+  border-color: rgba(74, 222, 128, 1);
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(34, 197, 94, 0.5);
+}
+
+.menu-toggle:active {
+  transform: scale(0.98);
+}
+
+/* Gumb popravak */
+.button-group {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  padding: 14px 32px;
+  background: #22c55e;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3);
+  transition: 0.3s;
+}
+
+.cta-button:hover {
+  background: #16a34a;
+  box-shadow: 0 12px 24px rgba(34, 197, 94, 0.4);
+  transform: translateY(-2px);
+}
+
+.whatsapp-button {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  padding: 14px 32px;
+  background: #25d366;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+  transition: 0.3s;
+}
+
+.whatsapp-button:hover {
+  background: #20ba5a;
+  box-shadow: 0 12px 24px rgba(37, 211, 102, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Hero Content - Poboljšana vidljivost teksta */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-shadow:
+    3px 3px 8px rgba(0, 0, 0, 0.8),
+    1px 1px 3px rgba(0, 0, 0, 0.9);
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+}
+
+.hero-content p {
+  font-size: 1.4rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  text-shadow:
+    2px 2px 6px rgba(0, 0, 0, 0.8),
+    1px 1px 2px rgba(0, 0, 0, 0.9);
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* ========== Allgemeiner Container ========== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 5rem 2rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--primary-green);
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--secondary-green);
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+/* ========== Services Section ========== */
+.services {
+  background-color: var(--light-gray);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.service-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border-left: 5px solid var(--secondary-green);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-left-color: var(--light-green);
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  color: var(--primary-green);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.service-card p {
+  color: #666;
+  line-height: 1.8;
+}
+
+.service-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 1rem;
+  display: block;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.service-card:hover .service-image {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* ========== About Section ========== */
+.about {
+  background-color: var(--pale-green);
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--white);
+  padding: 3rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.about-content strong {
+  color: var(--primary-green);
+}
+
+/* ========== Contact Section ========== */
+.contact {
+  background-color: var(--white);
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.contact-info {
+  background-color: var(--light-gray);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.contact-item {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  color: var(--secondary-green);
+  margin-top: 0.3rem;
+}
+
+.contact-text h4 {
+  color: var(--primary-green);
+  margin-bottom: 0.5rem;
+}
+
+.contact-text p {
+  color: #666;
+}
+
+.phone-link {
+  color: var(--secondary-green);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.phone-link:hover {
+  color: var(--primary-green);
+}
+
+/* ========== Phone Highlight ========== */
+.phone-highlight {
+  background: linear-gradient(
+    135deg,
+    var(--secondary-green) 0%,
+    var(--primary-green) 100%
+  );
+  color: var(--white);
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.phone-highlight h3 {
+  font-size: 0.95rem;
+  opacity: 0.95;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.phone-highlight a {
+  display: inline-block;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  border: 2px solid var(--white);
+}
+
+.phone-highlight a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* ========== Email Highlight ========== */
+.email-highlight {
+  background: linear-gradient(135deg, #2d6a3e 0%, #4a9d6f 100%);
+  color: var(--white);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+  border-left: 4px solid var(--light-green);
+}
+
+.email-highlight h4 {
+  font-size: 0.85rem;
+  opacity: 0.95;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--light-green);
+}
+
+.email-highlight a {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.email-highlight a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  text-decoration: underline;
+}
+
+/* ========== Footer ========== */
+footer {
+  background: linear-gradient(
+    135deg,
+    var(--primary-green) 0%,
+    var(--accent-green) 100%
+  );
+  color: var(--white);
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-contact {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.footer-contact p {
+  margin-bottom: 0.5rem;
+}
+
+.footer-copyright {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 1.5rem;
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 768px) {
+  .phone-highlight a {
+    font-size: 1.5rem;
+  }
+
+  #navMenu {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--accent-green);
+    padding: 1rem;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+  }
+
+  #navMenu.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero {
+    padding: 4rem 2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0 1rem;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  .section {
+    padding: 2rem 1rem;
+  }
+
+  .about-content {
+    padding: 1.5rem;
+  }
+
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
